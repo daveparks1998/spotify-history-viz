@@ -22,6 +22,7 @@ export async function GET(request: Request) {
       SELECT 1
       FROM plays
       ${whereSql}
+      GROUP BY track_name, artist_name, album_name
     ) t
   `).get(params) as { c: number };
 
@@ -32,6 +33,7 @@ export async function GET(request: Request) {
            COUNT(*) as plays
     FROM plays
     ${whereSql}
+    GROUP BY track_name, artist_name, album_name
     ORDER BY plays DESC
     LIMIT @limit OFFSET @offset
   `).all(params) as { name: string; artist: string; album: string; plays: number }[];

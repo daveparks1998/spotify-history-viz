@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# spotify data (privacy)
+/data/
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
